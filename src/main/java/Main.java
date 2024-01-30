@@ -15,6 +15,7 @@ import java.util.stream.Stream;
 public class Main {
 
     static String directory = "players";
+    static String idDelimiter = "-VS-";
     public static void main(String[] args) throws IOException {
 
         int gameSize = 10;
@@ -55,7 +56,7 @@ public class Main {
                     gameSets.add(new GameSet(firstPResponse, secondPResponse));
                 }
 
-                scores.put(playerAName + "-VS-" + playerBName, gameSets);
+                scores.put(playerAName + idDelimiter + playerBName, gameSets);
 
                 firstPlayer.destroy();
                 secondPlayer.destroy();
@@ -101,6 +102,43 @@ public class Main {
     }
 
     private static FileWriter allTournamentFile(HashMap<String, ArrayList<GameSet>> scores) throws IOException {
+        FileWriter arquivo = new FileWriter("tournament.csv", false);
+        scores.forEach((key, value) -> {
+            try {
+                arquivo.write(key.replace(".jar", "") + ",");
+                arquivo.write(key.replace(".jar", "").split(idDelimiter)[0] + ",");
+
+                value.forEach(gameSet -> {
+                    try {
+                        arquivo.write(gameSet.fPlayerMove + ",");
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    }
+                });
+
+                arquivo.write("\n");
+
+                arquivo.write(key.replace(".jar", "") + ",");
+                arquivo.write(key.replace(".jar", "").split(idDelimiter)[1] + ",");
+
+                value.forEach(gameSet -> {
+                    try {
+                        arquivo.write(gameSet.sPlayerMove + ",");
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    }
+                });
+                arquivo.write("\n");
+
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        });
+
+        return arquivo;
+    }
+
+    private static FileWriter allTournamentFileToHuman(HashMap<String, ArrayList<GameSet>> scores) throws IOException {
         FileWriter arquivo = new FileWriter("fLineXsLine.csv", false);
         scores.forEach((key, value) -> {
             try {
