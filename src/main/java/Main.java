@@ -18,7 +18,7 @@ public class Main {
     static String idDelimiter = "-VS-";
     public static void main(String[] args) throws IOException {
 
-        int gameSize = 10;
+        int gameSize = 200;
 
         HashMap<String, ArrayList<GameSet>> scores = new HashMap<>();
 
