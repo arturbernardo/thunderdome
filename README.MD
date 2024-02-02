@@ -45,3 +45,9 @@ O Thunderdome é um jogo que simula interações baseadas no dilema do prisionei
 
 - Execute o Thunderdome:
 - Output é um CSV chamado tournament.csv que será criado na raiz.
+
+
+## Analises dos resultados ##
+> 🚧 em construção 🚧
+
+https://colab.research.google.com/drive/1Ex3tsVOQD64o72aIhgQ_nfW1lsHRvWTR#scrollTo=YZpBFi_mx1t4
