@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class Main {
+public class NastyTitForTat {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         String myMove = "";

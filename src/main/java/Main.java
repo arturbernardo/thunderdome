@@ -20,7 +20,7 @@ public class Main {
         if (args.length > 0)
             directory = args[0];
 
-        int gameSize = 200;
+        int gameSize = 20;
 
         HashMap<String, ArrayList<GameSet>> scores = new HashMap<>();
 
