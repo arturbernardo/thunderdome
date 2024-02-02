@@ -16,11 +16,15 @@ public class Main {
 
     static String directory = "players";
     static String idDelimiter = "-VS-";
+
+    static int gameSize = 200;
+
     public static void main(String[] args) throws IOException {
         if (args.length > 0)
             directory = args[0];
 
-        int gameSize = 20;
+        if (args.length > 1)
+            gameSize = Integer.parseInt(args[1]);
 
         HashMap<String, ArrayList<GameSet>> scores = new HashMap<>();
 
@@ -80,6 +84,7 @@ public class Main {
         }
     }
 
+    // Caso algum erro trave o processo, em 10 segundos ele destroi as aplicações.
     private static void stopIfProcessIsToLong(Process firstPlayer, Process secondPlayer) {
         Thread thread = new Thread(() -> {
             try {
