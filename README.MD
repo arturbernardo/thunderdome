@@ -8,7 +8,11 @@ Para incorporar estratégias já compiladas, é necessário adicioná-las à pas
 
 A compilação do código Java pode ser realizada com os comandos:
 
+Pode-se commpilar comando a comando:
 javac YourStrategyMain.java
 jar cfe YourStrategy.jar YourStrategyMain YourStrategyMain.class
 java -jar YourStrategy.jar
 
+Ou pode-se compilar usando os arquivos bash
+./compile.sh TipForTat garbage
+./compileAndRun.sh TipForTat
