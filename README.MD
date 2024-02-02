@@ -1,18 +1,47 @@
-Crie um arquivo Java contendo o método principal. Integre uma estratégia que interage por meio da leitura e escrita nos fluxos de entrada e saída padrão (stdin e stdout).
+# Thunderdome
 
-Ao iniciar, cada jogador receberá a mensagem "GO", indicando que é o momento de realiza o primeiro movimento. Posteriormente, eles receberão o feedback do oponente e devem reagir imediatamente, enviando o próximo movimento.
+Este é um projeto baseado no artigo de Robert Axelrod, "Effective Choice in the Prisoner’s Dilemma" (Axelrod, R. 1980). 
 
-O Thunderdome assume a responsabilidade de iniciar e encerrar os JARs das estratégias. O JAR da estratégia deve permanecer em execução até ser finalizado.
+A implementação foi inspirada pelo vídeo do Derek Muller (Veritasium), disponível [aqui](https://www.youtube.com/watch?v=mScpHTIi-kM).
 
-Para incorporar estratégias já compiladas, é necessário adicioná-las à pasta "players". Alternativamente, você pode especificar outra pasta como argumento ao executar o programa.
+## Estrutura do Projeto
 
-A compilação do código Java pode ser realizada com os comandos:
+O Thunderdome é um jogo que simula interações baseadas no dilema do prisioneiro. Cada estratégia interage por meio da leitura e escrita nos fluxos de entrada e saída padrão (stdin e stdout). O Thunderdome inicia e encerra os JARs das estratégias, e o JAR de uma estratégia deve permanecer em execução até ser finalizado.
 
-Pode-se commpilar comando a comando:
-javac YourStrategyMain.java
-jar cfe YourStrategy.jar YourStrategyMain YourStrategyMain.class
-java -jar YourStrategy.jar
+## Instruções de Uso
 
-Ou pode-se compilar usando os arquivos bash
-./compile.sh TipForTat garbage
-./compileAndRun.sh TipForTat
+1. **Crie uma estratégia:**
+    - Crie um arquivo .java contendo um método main.
+    - O algoritmo deve rodar até que seja encerrado por terceiros, visto que o Thunderdome irá controlar o jogo.
+    - O primeiro movimento será sinalizado pela mensagem "GO". A estratégia deve responder com seu primeiro movimento.
+    - Se a estratégia pretende colaborar, deve responder C, se pretende trair, deve responder T.
+    - O Thunderdome cruza o retorno das duas estratégias, computa o resultado e as informa qual foi o movimento anterior do oponente.
+    - Ao receber a informação com o movimento do oponente, a estratégia deve computar como reagir e responder imediatamente.
+    - Nenhuma outra informação deve ser lida ou escrito via std.
+    - A pasta strategies contém diversos exemplos.
+
+2. **Compilação do Código Java:**
+    - Compile suas estratégias:
+      ```
+      javac YourStrategyMain.java
+      jar cfe YourStrategy.jar YourStrategyMain YourStrategyMain.class
+      java -jar YourStrategy.jar
+      ```
+   - As coloque no diretório acessado pelo Thunderdome:
+     - caso rode via IDE, a pasta players é a padrão. Outra pode ser passada por parâmetro.
+     - caso crie um jar do thunderdome, crie um pasta players no mesmo nível do jar ou passe como parâmetro um path.
+   
+   - Ou use os scripts bash na pasta strategies, sendo o primeiro parâmetro o nome da estratégia (que deve corresponder ao nome do .java) e o segundo parâmetro do compile.sh a pasta destino:
+     ```
+     ./compile.sh YourStrategy pastaDestino
+     ./compileAndRun.sh YourStrategy
+     ```
+
+3. **Adicionando Estratégias Compiladas:**
+    - Adicione os JARs das estratégias à pasta "players".
+    - Caso tenha usado o script fornecido, o jar já estará na pasta.
+   
+## Executando o Thunderdome
+
+- Execute o Thunderdome:
+- Output é um CSV chamado tournament.csv que será criado na raiz.
