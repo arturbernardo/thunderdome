@@ -18,6 +18,8 @@ public class Main {
     static String directory = "players";
     static String idDelimiter = "-VS-";
     public static void main(String[] args) throws IOException {
+        if (args.length > 0)
+            directory = args[0];
 
         int gameSize = 200;
 

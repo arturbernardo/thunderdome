@@ -1,12 +1,14 @@
-Crie um arquivo java com método main.
-Nele adicione a estratégia, que deve ler stdin e stdout e responder via System.out.println.
-A primeira mensagem que a será enviada para cada jogador é "GO", indicando que devem fazer seus movimentos.
-A partir desta mensagem eles receberão o feedback do oponente e devem responder imediatamente com o próximo movimento.
-O thunderdome inicia os jars e os finaliza. A jar da estratégia deve rodar até ser finalizado.
+Crie um arquivo Java contendo o método principal. Integre uma estratégia que interage por meio da leitura e escrita nos fluxos de entrada e saída padrão (stdin e stdout).
 
+Ao iniciar, cada jogador receberá a mensagem "GO", indicando que é o momento de realiza o primeiro movimento. Posteriormente, eles receberão o feedback do oponente e devem reagir imediatamente, enviando o próximo movimento.
 
-javac Main.java
+O Thunderdome assume a responsabilidade de iniciar e encerrar os JARs das estratégias. O JAR da estratégia deve permanecer em execução até ser finalizado.
 
-jar cfe YourStrategy.jar Main Main.class
+Para incorporar estratégias já compiladas, é necessário adicioná-las à pasta "players". Alternativamente, você pode especificar outra pasta como argumento ao executar o programa.
 
+A compilação do código Java pode ser realizada com os comandos:
+
+javac YourStrategyMain.java
+jar cfe YourStrategy.jar YourStrategyMain YourStrategyMain.class
 java -jar YourStrategy.jar
+
