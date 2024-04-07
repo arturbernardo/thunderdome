@@ -30,8 +30,8 @@ public class Main {
 
         List<String> players = listFiles();
 
-        for (int i = 0; i < players.size() - 1; i++) {
-            for (int j = i + 1; j < players.size(); j++) {
+        for (int i = 0; i < players.size(); i++) {
+            for (int j = i; j < players.size(); j++) {
                 String playerAName = players.get(i);
                 String playerBName = players.get(j);
                 ArrayList<GameSet> gameSets = new ArrayList<>();
@@ -55,9 +55,6 @@ public class Main {
 
                     secondPWriter.println(firstPResponse);
                     firstPWriter.println(secondPResponse);
-
-                    System.out.println("Fist response: " + firstPResponse);
-                    System.out.println("Second response: " + secondPResponse);
 
                     gameSets.add(new GameSet(firstPResponse, secondPResponse));
                 }
