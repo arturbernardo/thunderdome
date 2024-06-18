@@ -4,6 +4,8 @@ Este é um projeto baseado no artigo de Robert Axelrod, "Effective Choice in the
 
 A implementação foi inspirada pelo vídeo do Derek Muller (Veritasium), disponível [aqui](https://www.youtube.com/watch?v=mScpHTIi-kM).
 
+Postagem no linkedin com mais ideias sobre o projeto [linkedin](https://www.linkedin.com/feed/update/urn:li:activity:7159245639422296064/)
+
 ## Estrutura do Projeto
 
 O Thunderdome é um jogo que simula interações baseadas no dilema do prisioneiro. Cada estratégia interage por meio da leitura e escrita nos fluxos de entrada e saída padrão (stdin e stdout). O Thunderdome inicia e encerra os JARs das estratégias, e o JAR de uma estratégia deve permanecer em execução até ser finalizado.
